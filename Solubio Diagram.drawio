@@ -1,10 +1,52 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0.1 Safari/605.1.15" version="24.8.2">
-  <diagram name="Page-1" id="TXpgRuJlSvlXsrA4ea__">
-    <mxGraphModel>
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="Improved Chatbot Architecture with AWS, Python, Watson, MongoDB, RESTful API" id="0">
+        <mxGraphModel dx="727" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;font color=&quot;#000000&quot;&gt;User Interactions&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="User sends message via Web/WhatsApp" style="shape=mxgraph.people.customer;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="API Gateway (REST)" style="shape=mxgraph.aws4.api_gateway;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="100" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="AWS Lambda (Python App)" style="shape=mxgraph.aws4.lambda;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="100" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Watson Assistant (NLP)" style="shape=mxgraph.ibm.ibm_watson;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="MongoDB (Database)" style="shape=mxgraph.aws4.rds_on_instance;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="200" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="AWS S3 (Static Storage)" style="shape=mxgraph.aws4.s3;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="200" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" parent="1" source="3" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" parent="1" source="4" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" parent="1" source="5" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" parent="1" source="5" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" parent="1" source="5" target="8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;font color=&quot;#000000&quot;&gt;AWS Cloud Infrastructure&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9f2ff;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="40" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;font color=&quot;#000000&quot;&gt;NLP Processing&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9f2ff;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="40" width="220" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
