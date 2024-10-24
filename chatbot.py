@@ -2,9 +2,9 @@ from ibm_watson import AssistantV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 # Credenciais da API do Watson Assistant
-api_key = 'SUA_API_KEY_AQUI'  # Substitua pela sua API Key
-url = 'SUA_URL_DO_WATSON_AQUI'  # Substitua pela URL do Watson Assistant
-assistant_id = 'SEU_ASSISTENTE_ID_AQUI'  # Substitua pelo Assistant ID
+api_key = '3BI_CbD-h6_CpdpIJb-Lslj02_eCM9F5OTpSo1C7PWIK'  # Substitua pela sua API Key
+url = 'https://api.us-east.assistant.watson.cloud.ibm.com/instances/4471e0d3-49c2-4f0c-9f8d-f8144f838ba3'  # Substitua pela URL do Watson Assistant
+assistant_id = '91b4b6f5-14f1-46f6-b06c-73d22d776a92'  # Substitua pelo Assistant ID
 
 # Autenticar no Watson Assistant
 authenticator = IAMAuthenticator(api_key)
