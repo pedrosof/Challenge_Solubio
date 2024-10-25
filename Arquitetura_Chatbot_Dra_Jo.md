@@ -3,7 +3,7 @@
 Essa arquitetura, baseada em Google Cloud, oferece uma solução completa para a criação de chatbots inteligentes e escaláveis, capazes de interagir com usuários através de diversos canais, como web e WhatsApp. O chatbot **Dra Jo** utiliza a flexibilidade do Google Cloud com a precisão do Dialogflow para criar conversas naturais e personalizadas.
 
 ## Diagrama da Arquitetura
-(Solubio Diagram.png)
+!(Solubio Diagram.png)
 
 ## Fluxo de Conversação
 1. **Interação do Usuário**: O usuário inicia uma conversa através da web ou do WhatsApp. As mensagens são enviadas para o Google Cloud Endpoints.
