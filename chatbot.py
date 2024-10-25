@@ -1,56 +1,63 @@
-from ibm_watson import AssistantV2
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+import os
+import uuid
+from google.cloud.dialogflowcx_v3beta1.services.agents import AgentsClient
+from google.cloud.dialogflowcx_v3beta1.types import session
+from google.cloud.dialogflowcx_v3beta1 import SessionsClient
 
-# Credenciais da API do Watson Assistant
-api_key = '3BI_CbD-h6_CpdpIJb-Lslj02_eCM9F5OTpSo1C7PWIK'  # Substitua pela sua API Key
-url = 'https://api.us-east.assistant.watson.cloud.ibm.com/instances/4471e0d3-49c2-4f0c-9f8d-f8144f838ba3'  # Substitua pela URL do Watson Assistant
-assistant_id = '91b4b6f5-14f1-46f6-b06c-73d22d776a92'  # Substitua pelo Assistant ID
+# Defina o caminho para o arquivo JSON das credenciais
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/pedrosof/Documents/FIAP/Trabalhos/Challenge_Solubio/solubio-chatbot-99cf215dab01.json"
 
-# Autenticar no Watson Assistant
-authenticator = IAMAuthenticator(api_key)
-assistant = AssistantV2(
-    version='2021-06-14',
-    authenticator=authenticator
-)
-assistant.set_service_url(url)
+def start_chatbot():
+    # Configurações do agente
+    project_id = "solubio-chatbot"
+    location_id = "us-east1"
+    agent_id = "abd45053-6c47-4015-ab08-111ec3bd0707"
+    agent = f"projects/{project_id}/locations/{location_id}/agents/{agent_id}"
 
-# Criar uma nova sessão
-session = assistant.create_session(
-    assistant_id=assistant_id
-).get_result()
+    # Configuração da sessão
+    session_id = str(uuid.uuid4())
+    language_code = "en-us"
 
-session_id = session['session_id']
-print("Sessão iniciada com sucesso!")
+    print("Chatbot iniciado! Digite sua mensagem ou 'sair' para encerrar.")
 
-# Função para enviar uma mensagem do usuário ao chatbot
-def send_message(text):
-    response = assistant.message(
-        assistant_id=assistant_id,
-        session_id=session_id,
-        input={
-            'message_type': 'text',
-            'text': text
-        }
-    ).get_result()
-    
-    output = response['output']['generic']
-    if output:
-        for item in output:
-            print('Chatbot: ' + item['text'])
-
-# Loop para simular a conversa com o chatbot
-try:
+    # Loop de interação com o usuário
     while True:
-        user_message = input("Você: ")
-        if user_message.lower() == 'sair':
-            print("Encerrando a conversa...")
+        user_input = input("Você: ")
+        if user_input.lower() == "sair":
+            print("Encerrando o chatbot. Até logo!")
             break
-        send_message(user_message)
 
-finally:
-    # Fechar a sessão ao encerrar a conversa
-    assistant.delete_session(
-        assistant_id=assistant_id,
-        session_id=session_id
-    )
-    print("Sessão encerrada.")
+        # Chama a função para detectar a intenção com o texto do usuário
+        response_text = detect_intent_text(agent, session_id, user_input, language_code)
+        print(f"Chatbot: {response_text}")
+
+def detect_intent_text(agent, session_id, text, language_code):
+    """Envia uma mensagem e obtém a resposta do Dialogflow."""
+    
+    session_path = f"{agent}/sessions/{session_id}"
+    client_options = None
+    agent_components = AgentsClient.parse_agent_path(agent)
+    location_id = agent_components["location"]
+    
+    if location_id != "global":
+        api_endpoint = f"{location_id}-dialogflow.googleapis.com:443"
+        client_options = {"api_endpoint": api_endpoint}
+    
+    # Inicializa o cliente de sessão com as opções definidas
+    session_client = SessionsClient(client_options=client_options)
+
+    # Prepara a entrada e envia a solicitação
+    text_input = session.TextInput(text=text)
+    query_input = session.QueryInput(text=text_input, language_code=language_code)
+    request = session.DetectIntentRequest(session=session_path, query_input=query_input)
+    
+    response = session_client.detect_intent(request=request)
+    response_messages = [
+        " ".join(msg.text.text) for msg in response.query_result.response_messages
+    ]
+    
+    return " ".join(response_messages)
+
+# Executa o chatbot interativo
+if __name__ == "__main__":
+    start_chatbot()

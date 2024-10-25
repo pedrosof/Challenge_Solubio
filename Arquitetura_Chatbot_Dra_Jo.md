@@ -1,67 +1,65 @@
+# Arquitetura de Chatbot Inteligente com Google Cloud
 
-# Proposta de Arquitetura para o Chatbot da Dra. Jô
+Essa arquitetura, baseada em Google Cloud, oferece uma solução completa para a criação de chatbots inteligentes e escaláveis, capazes de interagir com usuários através de diversos canais, como web e WhatsApp. O chatbot **Dra Jo** utiliza a flexibilidade do Google Cloud com a precisão do Dialogflow para criar conversas naturais e personalizadas.
 
-## 1. Objetivo e Escopo
-O objetivo do chatbot é automatizar o atendimento ao cliente da Dra. Jô, permitindo que os usuários realizem agendamentos, tirem dúvidas frequentes e recebam suporte em tempo real. Isso reduz a carga de trabalho dos atendentes e melhora a experiência do usuário, fornecendo respostas rápidas e precisas.
+## Diagrama da Arquitetura
+(Solubio Diagram.png)
 
-## 2. Escolha do Chatbot: IBM Watson Assistant
-A solução proposta utiliza o **IBM Watson Assistant** para criar um chatbot avançado, capaz de interpretar a linguagem natural dos usuários, lidar com interações complexas e fornecer respostas adequadas. A ferramenta de IA e NLP (Processamento de Linguagem Natural) do Watson Assistant é a principal responsável pelo processamento das mensagens dos usuários.
+## Fluxo de Conversação
+1. **Interação do Usuário**: O usuário inicia uma conversa através da web ou do WhatsApp. As mensagens são enviadas para o Google Cloud Endpoints.
+2. **Processamento da Mensagem**: O Google Cloud Endpoints direciona a mensagem para o Dialogflow, que utiliza técnicas avançadas de NLP para entender a intenção do usuário.
+3. **Geração da Resposta**: Com base na intenção identificada, o Dialogflow gera uma resposta personalizada ou aciona uma ação específica, como buscar informações em um banco de dados.
+4. **Armazenamento de Dados**: O histórico da conversa, preferências do usuário e outros dados relevantes são armazenados no MongoDB para análise e personalização futura.
+5. **Resposta ao Usuário**: A resposta gerada pelo Dialogflow é enviada de volta ao usuário através do canal original (web ou WhatsApp).
 
-## 3. Camadas da Arquitetura
+## Componentes-chave
+- **Dialogflow**: Motor de NLP que compreende a linguagem natural e gera respostas personalizadas.
+- **Google Cloud Functions**: Backend escalável para executar a lógica do chatbot e integrar com outros serviços.
+- **MongoDB**: Banco de dados NoSQL para armazenar dados não estruturados de forma flexível.
+- **Google Cloud Endpoints**: API Gateway para gerenciar o tráfego e garantir a segurança.
+- **Twilio**: Plataforma de comunicação em nuvem para integrar o chatbot com o WhatsApp.
+- **Vertex AI**: Fornece capacidades de IA generativa para criar respostas mais criativas e personalizadas.
 
-### 3.1. Interface de Usuário (Front-end)
-- **Plataformas:** O chatbot será acessível pelo **site da Dra. Jô** através de um widget de chat, bem como por plataformas de mensagens como **WhatsApp** e **Facebook Messenger**.
-- **Função:** A interface permite que os usuários enviem perguntas ao chatbot e recebam respostas em tempo real, facilitando a interação em um ambiente familiar.
-- **Tecnologia:** O **Watson Assistant** possui integrações nativas com essas plataformas, facilitando a implementação.
+## Benefícios
+- **Escalabilidade**: A arquitetura em nuvem permite escalar o chatbot para atender a um grande número de usuários.
+- **Flexibilidade**: A utilização de containers e funções serverless facilita a adição de novas funcionalidades.
+- **Personalização**: O Dialogflow e o Vertex AI permitem criar experiências personalizadas para cada usuário.
+- **Integração**: A integração com o WhatsApp amplia o alcance do chatbot e permite alcançar um público mais amplo.
 
-### 3.2. Motor de Processamento de Linguagem Natural (NLP) - IBM Watson Assistant
-- **Função:** Interpretar as mensagens dos usuários, identificar intenções e fornecer respostas baseadas em dados de treinamento.
-- **Treinamento:** São usados exemplos reais e sintéticos para treinar o chatbot a lidar com agendamentos, suporte técnico, e perguntas frequentes. O chatbot melhora conforme interage com mais usuários.
-- **Ajustes contínuos:** O modelo de IA é ajustado periodicamente para melhorar a precisão das respostas e garantir uma experiência de uso eficiente.
+Essa arquitetura oferece uma base sólida para a criação de chatbots inteligentes e personalizados, capazes de atender às necessidades de diversos setores e empresas.
 
-### 3.3. Back-end (Processamento e Integração com Sistemas)
-- **Lógica de Negócio:** O back-end é responsável pela integração com sistemas internos (ex.: agendamentos, CRM) e processamento das respostas.
-- **Tecnologia:** O back-end será implementado com **Python** utilizando **AWS Lambda** para executar funções serverless, garantindo eficiência e escalabilidade. As funções tratam a lógica de negócios e integram o chatbot com os sistemas.
-- **Banco de Dados:** O **MongoDB** será usado como banco de dados para armazenar informações sobre os usuários e histórico de interações.
-- **Função:** Processar as mensagens e garantir que o chatbot responda com informações em tempo real, integrando-se a serviços de agendamento e CRM via **API REST**.
+## Resultados Esperados
+- **Automatização de Processos**: O chatbot automatiza o atendimento e agendamentos, reduzindo a carga de trabalho humano e permitindo respostas 24/7.
+- **Escalabilidade**: A arquitetura suporta o crescimento da empresa, permitindo o aumento da demanda sem degradação de desempenho.
+- **Satisfação do Cliente**: Respostas rápidas e consistentes elevam a satisfação e fidelização dos clientes.
 
-### 3.4. Infraestrutura em Nuvem - AWS
-- **Hospedagem:** Toda a solução será hospedada na **AWS Cloud**, utilizando o **API Gateway** para expor as APIs REST e **AWS Lambda** para rodar o back-end.
-- **Armazenamento Opcional:** A solução pode usar o **AWS S3** para armazenar conteúdos estáticos, como documentos ou respostas frequentes.
-- **Segurança e Escalabilidade:** O **Watson Assistant** e o **MongoDB** se comunicam com segurança através de **API REST**, garantindo que os dados sejam mantidos seguros e o sistema escalável.
+## Valores Agregados ao Modelo de Negócio
+- **Eficiência Operacional**: Com o chatbot lidando com perguntas frequentes, a equipe pode focar em atividades mais complexas.
+- **Aumento de Receitas**: Com mais facilidade para agendamentos e suporte rápido, a empresa deve converter mais leads e aumentar a retenção de clientes.
+- **Melhoria no Atendimento**: O chatbot coleta dados valiosos, que podem ser usados para ajustar os produtos e serviços.
 
-## 4. Descrição dos Elementos da Arquitetura
+## Possíveis Extensões
+- **Integração com outros canais**: Adicionar suporte a outros canais de comunicação, como Telegram ou Facebook Messenger.
+- **Análise de sentimentos**: Utilizar técnicas de análise de sentimentos para identificar a emoção do usuário e ajustar as respostas.
+- **Aprendizado de máquina**: Implementar modelos de aprendizado de máquina para melhorar a precisão do Dialogflow e personalizar a experiência do usuário ao longo do tempo.
 
-- **Interface de Usuário:** Conectada ao Watson Assistant por meio de APIs, seja em um site, WhatsApp, ou Messenger.
-- **Motor de NLP:** O Watson Assistant processa as entradas do usuário, entendendo intenções e respondendo com base em dados de IA treinados.
-- **Back-end:** Utilizando **AWS Lambda** para funções serverless, o back-end integra os dados do chatbot com os sistemas internos.
-- **Banco de Dados:** O **MongoDB** armazena dados dos usuários e interações.
-- **Infraestrutura em Nuvem:** A solução usa o **AWS API Gateway** para comunicação e **AWS S3** para armazenamento opcional de dados estáticos, com escalabilidade gerenciada pelo **AWS Lambda**.
+## Previsão de Custos
+A seguir, uma previsão de custos estimada para a operação da arquitetura de chatbot inteligente, considerando os componentes principais implementados para o agente 'Dra Jo'. A previsão é uma estimativa que pode variar dependendo do uso e de fatores específicos de configuração.
 
-## 5. Previsão de Custos
+| Componente             | Descrição                                                      | Custo Estimado (Mensal) |
+|------------------------|----------------------------------------------------------------|--------------------------|
+| Google Cloud Endpoints | Gateway de API RESTful para gerenciamento de tráfego e segurança. | USD 20 - 50              |
+| Google Cloud Functions | Funções serverless para execução do backend do chatbot em Python. | USD 50 - 150             |
+| Dialogflow             | Serviço de NLP para compreensão e geração de respostas.           | USD 100 - 300            |
+| MongoDB Atlas          | Banco de dados NoSQL para armazenamento de histórico e preferências. | USD 30 - 100            |
+| Google Cloud Storage   | Armazenamento de dados estáticos como logs e arquivos de mídia. | USD 10 - 30              |
+| Twilio para WhatsApp   | Plataforma de comunicação para integração com WhatsApp.         | USD 50 - 100             |
+| Vertex AI              | IA generativa para respostas avançadas e personalizadas.       | USD 100 - 250            |
 
-| **Componente**                       | **Custo Mensal**                                                                                                                                                    |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **IBM Watson Assistant**             | Plano gratuito disponível para até 10.000 mensagens mensais. Após esse limite, o custo é estimado em $0,0025 por mensagem.                                           |
-| **AWS Lambda (Aplicação Python)**    | O plano gratuito do AWS Lambda oferece até 1 milhão de requisições mensais. Custos adicionais dependem do número de requisições e tempo de execução.                 |
-| **MongoDB (Banco de Dados)**         | A camada gratuita do MongoDB cobre até 512 MB de armazenamento. Acima disso, o custo é baseado no armazenamento e uso.                                              |
-| **API Gateway (AWS)**                | O API Gateway possui um plano gratuito com 1 milhão de chamadas HTTP/mês. Custos adicionais são calculados com base no número de chamadas.                           |
-| **AWS S3 (Armazenamento)**           | Disponível gratuitamente para até 5 GB de armazenamento. Custos adicionais são baseados no volume de dados armazenados e acessos.                                    |
+**Total Estimado**: USD 360 - 980
 
-**Total Estimado:** Com base em uma carga moderada (até 10.000 mensagens e uso básico da AWS), os créditos mensais oferecidos podem cobrir boa parte dos custos. À medida que o uso aumenta, os custos de infraestrutura e número de interações podem variar.
+Esses valores são aproximados e podem variar conforme o volume de interações e dados processados pelo agente 'Dra Jo'. Custos adicionais podem ser aplicados para manutenção, monitoramento e escalabilidade.
 
-## 6. Resultados Esperados
-
-- **Melhorias na Empresa:**
-   - **Automatização de Processos:** O chatbot automatiza o atendimento e agendamentos, reduzindo a carga de trabalho humano e permitindo respostas 24/7.
-   - **Escalabilidade:** A arquitetura suporta o crescimento da empresa, permitindo o aumento da demanda sem degradação de desempenho.
-   - **Satisfação do Cliente:** Respostas rápidas e consistentes elevam a satisfação e fidelização dos clientes.
-
-- **Valores Agregados ao Modelo de Negócio:**
-   - **Eficiência Operacional:** Com o chatbot lidando com perguntas frequentes, a equipe pode focar em atividades mais complexas.
-   - **Aumento de Receitas:** Com mais facilidade para agendamentos e suporte rápido, a empresa deve converter mais leads e aumentar a retenção de clientes.
-   - **Melhoria no Atendimento:** O chatbot coleta dados valiosos, que podem ser usados para ajustar os produtos e serviços.
-
-- **Possíveis Desafios:**
-   - **Necessidade de Ajustes Futuros:** Inicialmente, podem ocorrer erros nas respostas, exigindo ajustes contínuos no modelo de IA.
-   - **Custo de Escalabilidade:** Aumentar a capacidade pode trazer custos extras, especialmente em momentos de pico, exigindo uma boa gestão financeira.
+## Possíveis Desafios
+- **Necessidade de Ajustes Futuros**: Inicialmente, podem ocorrer erros nas respostas, exigindo ajustes contínuos no modelo de IA.
+- **Custo de Escalabilidade**: Aumentar a capacidade pode trazer custos extras, especialmente em momentos de pico, exigindo uma boa gestão financeira.
