@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "solubio-chatbot",
+  "private_key_id": "99cf215dab012ae09ed4768b0533d5136b674a76",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCu4jzhn9k/bJBS\nG1UgadQmLpedmYt17KkBuv2bdc/VAvG5mg1isL/ZqryeV1s510nrW8QNBw6Wdeza\njUXwWveljyneSHWLsjO40xSIkMP8I5IiQGkend9jElBXwyspY7LzZNSV6KYlKQIp\nNTZ1D4fbdbJ9zvjWTUM5k06LB8i09LbScgkk2q4dly6gndo9OfZyg6S7bpNdq9OK\nHDndUmtnYJb437oUYJGCN2Jb5EIzhDrGv3Tn5ECznSZpFZkJ2GNPtHFFiT2379KJ\nMlbqxfSWLW5awNOVA9zjoZJEe5cK3UOOEafZMY/1oRNcZRf79ArgKbPUcl5soDAH\nGAQpyE/5AgMBAAECggEAC3p6734r5q9L+6+ikzmO/KCTP/tbfXZ2k1AAJEuDxCHo\n1rtHRKKAPRupPKVULgQ07Fc+E3LSoMqFrMSYAhIebgXrBBVybaRZI7jrAJmr22lE\nRq4+mA1Zo6mIj3IWa6WJEdOc5mf6O7co1qaQ9/b4fk2H1R0YFQzGLEnAXny4zjOj\n4t8W1f9+C+R3GryTrcknFVoC7EZ5e0WF1Y3fYvU5XpH3fCpC4QiBX8Jcn8FsuAfO\n7ioVrz3QDBn8FWrOQh2UPm1Ugm3dx4DyqjpmMVsMNX07cLjQyINfoktDXXCoLaVT\nqxNuB/jUkp2x1gDpo+k2FFXWvY1gH+F3Der+q+8cuQKBgQDW1lOWhhDwYo0+WEuJ\nnCArMvh/CmZhYpx2phmaBWKromdu41V8plD/hNOMVLchbnoWM7WK9J8De5A3VMVH\n0un8wxO5bvLULvQOeQQ4Kae1glvxt2WX27Cu7m/49v0wVQzoBH8RQLVag52vgqAz\nDMQCL6skLzeQPJsMGVqImoaDTQKBgQDQZDXp6UAcsTfiOaP5LnTyljhgYpk3Q0e3\naDVkue9QIhfF956XVpbhkv6UaB80BnGrhjZo3954h6YVHV3RBp2PG5soRlUsH874\nsWZs2fsR2DBMDCzfGbLelfKQXQ4uJ13VbZha0c43cTlA0JbSYFzRotc7jvbrRlUh\nlbdCEryRXQKBgH1EKSb6cwQHIr44c4sAas1lgflpUfr0qbCQ9xqUi0zyfAbvLRhq\nTY4/n64Sc1ld9nfdnLwyGEnKkXOBzSos89w6ztRvuc04t3t82pX4y94M7ZmKSwV5\nxpKpWsa7FTRKUyUyAflIVrY5SgddThWWGu//ZXXKxkYm4Gz0l5JRL599AoGBAJ7m\nCoYVqSE3sFj7gqCaX+opyUsVY6bT0ndzKmNns6bymBYHvhG/oMTYBO68hi5xS3Ny\nn0JQkZ5uMKGhBsw/sxxP/Hs1RfSjPHo9KtCNVfhBVHJoRj7HpbA7vf1+NzXSJqZ7\nLtTxbcCwwOs/IgHAIIZpGJz9YiH8OyWkt1vWVZqxAoGAUuVabP5wC5dqBaLXybK2\nXwAqDpi9wlIfNAE2xuRgm53hS4xseUA3iN7abF33kJBQpfRlaOkWE9nMv7GHJlu5\nOspSDHkANAvwCerY9WNDQhSSi5QVaP5l7lBhJNOKdzcDqzC52G0cAjEQYRwbfKs1\n6NhSjsvBGdW17/n86rSH998=\n-----END PRIVATE KEY-----\n",
+  "client_email": "solubio-chatbot@solubio-chatbot.iam.gserviceaccount.com",
+  "client_id": "103857228555841365460",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/solubio-chatbot%40solubio-chatbot.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
